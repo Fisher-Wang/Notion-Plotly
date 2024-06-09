@@ -13,7 +13,7 @@ Therefore, I decided to combine the notion and plotly, two most powerful tools i
 - Visualize expenses in different forms, such as pie chart, bar chart... (TODO)
 - Encrypt the chart html files by assigning random names and encrypt their content with keys, in order to protect your privacy
 - Assign a unique link to each encrypted html file using Flask, so that you can easily access them from URL
-- Automatically insert the link to the notion page (TODO) 
+- Automatically insert the link to the notion page (TODO)
 
 ## How to use
 Setup the python environment

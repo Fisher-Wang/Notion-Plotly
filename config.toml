@@ -1,0 +1,7 @@
+[directory]
+plaintext_dir = 'data/plaintext_files'
+encrypted_dir = 'data/encrypted_files'
+key_dir = 'data/keys'
+
+[server]
+port = 20000

@@ -1,0 +1,7 @@
+Flask
+toml
+pandas
+plotly
+notion-client
+cryptography
+pre-commit

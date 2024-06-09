@@ -13,7 +13,7 @@ def mkdir(path):
 
 def read_toml(path):
     """Read a TOML file and return the data."""
-    with open(path, "r") as f:
+    with open(path) as f:
         data = toml.load(f)
     return data
 

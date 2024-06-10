@@ -54,6 +54,11 @@ def plot_pie2(df: pd.DataFrame, values_name: str, names_name: str):
     return fig
 
 
+def plot_bar(df, x_name, y_name, labels_name):
+    fig = px.bar(df, x=x_name, y=y_name, color=labels_name)
+    return fig
+
+
 if __name__ == "__main__":
     notion = Client(auth=os.getenv("NOTION_TOKEN"))
     db_rows = notion.databases.query(database_id=os.getenv("NOTION_DATABASE_ID"))
@@ -78,6 +83,19 @@ if __name__ == "__main__":
     time = "2024-05"
     chart_name = "expense-by-type"
     chart_type = "pie"
+    variantion_num = 0
+    fig.write_html(
+        os.path.join(
+            PLAINTEXT_DIR, f"{time}_{chart_name}_{chart_type}_v{variantion_num}.html"
+        )
+    )
+
+    fig = plot_bar(df, x_name="Date", y_name="Expense", labels_name="Type")
+    fig.update_layout(margin=dict(l=0, r=0, t=0, b=0))
+
+    time = "2024-05"
+    chart_name = "expense-by-date"
+    chart_type = "bar"
     variantion_num = 0
     fig.write_html(
         os.path.join(

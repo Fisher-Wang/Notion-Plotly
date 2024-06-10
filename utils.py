@@ -26,6 +26,23 @@ def get_all_files(src_dir):
     return filepaths
 
 
+def safe_get(data, dot_chained_keys):
+    """
+    {'a': {'b': [{'c': 1}]}}
+    safe_get(data, 'a.b.0.c') -> 1
+    """
+    keys = dot_chained_keys.split(".")
+    for key in keys:
+        try:
+            if isinstance(data, list):
+                data = data[int(key)]
+            else:
+                data = data[key]
+        except (KeyError, TypeError, IndexError):
+            return None
+    return data
+
+
 def generate_item_id(file_name):
     """Generate a unique item ID for a file based on its name."""
     return hashlib.md5(file_name.encode("utf-8")).hexdigest()
